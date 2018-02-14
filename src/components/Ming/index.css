@@ -1,0 +1,29 @@
+.fade_appear
+{
+    opacity: .01;
+}
+
+.fade_appear.fade_appear_active
+{
+    transition: opacity 1000ms ease-in;  opacity: 1;
+}
+
+.fade_enter
+{
+    opacity: .01;
+}
+
+.fade_enter.fade_enter_active
+{
+    transition: opacity 1000ms ease-in;  opacity: 1;
+}
+
+.fade_exit
+{
+    opacity: 1;
+}
+
+.fade_exit.fade_exit_active
+{
+    transition: opacity 800ms ease-in;  opacity: .01;
+}

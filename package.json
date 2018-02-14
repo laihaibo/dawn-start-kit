@@ -1,0 +1,26 @@
+{
+  "name": "dawn-start-kit",
+  "version": "1.0.1",
+  "description": "dawn start kit",
+  "main": "./lib/index.js",
+  "scripts": {
+    "test": "dn test && dn build -e prod"
+  },
+  "author": {
+    "name": "laihaibo",
+    "email": "2466006555@qq.com",
+    "url": "https://github.com/laihaibo"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1"
+  },
+  "dependencies": {
+    "mobx": "^3.5.1",
+    "mobx-react": "^4.4.1",
+    "normalize.css": "^8.0.0",
+    "react-router-dom": "^4.2.2",
+    "react-transition-group": "^2.2.1"
+  }
+}

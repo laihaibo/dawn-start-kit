@@ -1,0 +1,51 @@
+init:
+  - name: pkginfo
+
+dev:
+  - name: clean
+  - name: copy
+    files:
+      ./build/(0).ico: ./src/assets/favicon.ico
+  - name: webpack
+    watch: true
+    entry: ./src/pages/*.js               # 将 src 下所有 .js 文件作为入口（不包括子目录中的 js,）
+    template: ./src/assets/*.html         # 将 assest 下的所有 html 作为页面模板
+    cssModules: true
+  - name: server
+    port: 2333
+  - name: browser-sync
+
+build:
+  - name: clean
+  - name: copy
+    files:
+      (0): ./src/assets/favicon.ico
+  - name: webpack
+    entry: ./src/pages/*.js               # 将 src 下所有 .js 文件作为入口（不包括子目录中的 js,）
+    template: ./src/assets/*.html         # 将 assest 下的所有 html 作为页面模板
+    externals:                            # 声明排除的库文件，将不会打入 chunks 中
+      jquery: jQuery
+    common:
+      disabled: false                     # 是否禁用抽取公共部分
+      name: 'common'                      # 生成的公共资源名称
+    cssModules: true                      # 是否启用 css modules 方案
+    output: build                         # 构建结果目录，默认为 build
+    folders:                              # 指定资源子目录名称
+      js: js
+      css: css
+      font: font
+      img: img
+
+add:
+  - name: react-component-creator
+
+test:
+  - name: lint
+  - name: unit
+
+publish:
+  - name: shell
+    script:
+      - dn test
+      - dn build
+      - npm pu
